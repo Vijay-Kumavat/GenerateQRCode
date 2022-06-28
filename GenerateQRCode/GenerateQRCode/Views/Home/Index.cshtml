@@ -2,7 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <input type="text" name="inputText"/>
+    <input type="submit" value="Generate"/>
+}
+
+<hr />
+
+@if(@ViewBag.QRCode != null)
+{
+    <img src="@ViewBag.QRCode" style="width:200px;height:200px;"/>
+}
